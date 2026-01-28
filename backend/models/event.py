@@ -1,6 +1,11 @@
 from abc import ABC, abstractmethod
 import uuid
-import { connectionManager } from '../services/connectionManager.py'
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from services.eventManager import EventManager
+    from services.dataManager import DataManager
+
 
 class Event(ABC):
     def __init__(self, id: uuid, eventType: str, date):
@@ -10,7 +15,7 @@ class Event(ABC):
 
 
     @abstractmethod
-    async def resolve(self, manager: , db):
+    async def resolve(self, manager: "EventManager" , db: "DataManager"):
         """Each event must implement how it 'resolves' itself"""
         pass
 

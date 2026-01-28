@@ -1,0 +1,8 @@
+
+const userData= {
+    "users": [
+        {"id": 1, "name": "Alice", "status": "online"},
+        {"id": 2, "name": "Bob", "status": "offline"},
+        {"id": 3, "name": "Charlie", "status": "away"}
+    ]
+};

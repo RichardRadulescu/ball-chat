@@ -1,6 +1,6 @@
-from .connectionManager import ConnectionManager
-from .dataManager import DataManager
-from ..models.event import Event
+from services.connectionManager import ConnectionManager
+from services.dataManager import DataManager
+from models.event import Event
 
 class EventManager():
     def __init__(self, pub_sub: ConnectionManager, db: DataManager):
