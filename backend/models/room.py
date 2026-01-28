@@ -1,5 +1,5 @@
 import uuid
-from .user import User
+from user import User
 
 class Room():
     def __init__(self, room_id: uuid, name: str, capacity: int, owner=None, whitelist=None):
