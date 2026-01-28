@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Room Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer type="module"> </script>
+    <link rel="icon" href="/resources/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">CHATROOM</div>
+            <button onclick="addUser()">Simulate User Join</button>
+        </nav>
+
+        <div class="content-wrapper">
+            <aside>
+                <h3>Active Rooms</h3>
+                <div class="room-item">General Lobby</div>
+                <div class="room-item">Engineering</div>
+                <div class="room-item">The Lounge</div>
+            </aside>
+
+            <main>
+                <div class="physics-chat-container">
+                    <div id="physics-container">
+                        <button onclick="shuffleUsers()" class="button-shuffle">Shuffle Users</button>
+                    </div>
+                    <div class="chat-area">
+                        <div class="chat-messages">
+
+                            <div class="message">Hello! Welcome to the room.</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                            <div class="message user">I just joined!</div>
+                        </div>
+
+                        <form>
+                            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="stats-panel">
+                    <h3>Room Data</h3>
+                    <p>Total Users: <span id="user-count">0</span></p>
+                    <hr>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>
