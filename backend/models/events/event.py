@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import uuid
 from typing import TYPE_CHECKING
+from datetime import datetime
 
 if TYPE_CHECKING:
     from services.eventManager import EventManager
@@ -8,7 +9,7 @@ if TYPE_CHECKING:
 
 
 class Event(ABC):
-    def __init__(self, id: uuid, eventType: str, date):
+    def __init__(self, id: uuid, eventType: str, date: datetime):
         self.id = id
         self.eventType = eventType
         self.date = date

@@ -17,3 +17,16 @@ class User():
     
     def equals(self, other):
         return self.user_id == other.user_id
+    
+    @classmethod
+    def from_dict(cls, data: dict):
+        """
+        Creates a User instance from a dictionary.
+        Uses .get() for alias to handle cases where it might be missing.
+        """
+        return cls(
+            user_id=data.get("user_id") or data.get("id"), # Handles both naming styles
+            name=data.get("name"),
+            status=data.get("status"),
+            alias=data.get("alias")
+        )

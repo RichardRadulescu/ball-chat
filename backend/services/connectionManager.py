@@ -1,13 +1,22 @@
-class ConnectionManager:
+from utils.singleton import Singleton
+from fastapi import WebSocket
+
+class ConnectionManager(metaclass=Singleton):
     def __init__(self):
         self.connections = []
 
-    def subscribe(self, connection):
-        self.connections.append(connection)
+    async def subscribe(self, websocket: WebSocket):
+        await websocket.accept()
+        self.connections.append(websocket)
 
-    def unsubscribe(self, connection):
-        self.connections.remove(connection)
+    async def unsubscribe(self, websocket: WebSocket):
+        if websocket in self.connections:
+            self.connections.remove(websocket)
 
-    def publish(self, message):
-        for connection in self.connections:
-            connection.send(message)
+    async def publish(self, message: str):
+        for websocket in list(self.connections):
+            try:
+                await websocket.send_text(message)
+            except Exception:
+                # Remove broken connections
+                await self.unsubscribe(websocket)
