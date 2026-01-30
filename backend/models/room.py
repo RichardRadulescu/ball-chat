@@ -62,4 +62,4 @@ class Room():
         return self.room_id == other.room_id
     
     def has_capacity(self) -> bool:
-        return len(self.users) >= self.capacity
+        return len(self.users) < self.capacity

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import uuid
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Union
 from datetime import datetime
 
 if TYPE_CHECKING:
@@ -19,6 +19,11 @@ class Event(ABC):
     async def resolve(self, manager: "EventManager" , db: "DataManager"):
         """Each event must implement how it 'resolves' itself"""
         pass
+
+    @abstractmethod
+    def get_broadcast_message(self) -> Union[ None, str, dict]:
+        pass
+
 
     @staticmethod
     @abstractmethod

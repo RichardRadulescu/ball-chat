@@ -13,10 +13,12 @@ class ConnectionManager(metaclass=Singleton):
         if websocket in self.connections:
             self.connections.remove(websocket)
 
-    async def publish(self, message: str):
+    async def publish(self, payload):
         for websocket in list(self.connections):
             try:
-                await websocket.send_text(message)
+                if isinstance(payload, str):
+                    await websocket.send_text(payload)
+                elif isinstance(payload, dict):
+                    await websocket.send_json(payload)
             except Exception:
-                # Remove broken connections
                 await self.unsubscribe(websocket)

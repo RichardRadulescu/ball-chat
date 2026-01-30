@@ -18,14 +18,16 @@ class EventLeave(Event):
         self.datetime= date
 
     
-    async def resolve(self):
-        db = DataManager()
-        self.room.add_user(self.user)
+    async def resolve(self, db: DataManager):
+        
+        self.room.remove_user(self.user)
         db.update_room(self.room)
 
+    def get_broadcast_message(self):
+        return f"User {self.user.name} has left the room."
     
     @staticmethod
-    def parse_data(data: dict) -> EventLeave:
+    def parse_data(data: dict, db: DataManager) -> EventLeave:
         """
         {
             "user_id": string,
@@ -36,7 +38,6 @@ class EventLeave(Event):
         required = {"user_id", "room_id", "datetime"}
         if not required.issubset(data):
             raise ValueError("Invalid data format")
-        db = DataManager()
         
         user= db.get_user_by_id(data["user_id"])
         room= db.get_room_by_id(data["room_id"])
