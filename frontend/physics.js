@@ -1,10 +1,14 @@
+import { updateWalls } from "./wall.js";
+
 // physics.js
 const { Engine, Render, Runner, Bodies, Composite } = Matter;
 const container = document.getElementById('physics-container');
 const engine = Engine.create();
 
+export let render= null
+
 export function initPhysics() {
-    const render = Render.create({
+    render = Render.create({
         element: container,
         engine: engine,
         options: {
@@ -44,6 +48,8 @@ export function shuffleUsers() {
 
 
 window.addEventListener('resize', () => {
+    if (!render || !engine) return;
+
     const container = document.getElementById('physics-container');
     const width = container.clientWidth;
     const height = container.clientHeight;

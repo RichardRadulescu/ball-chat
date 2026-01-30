@@ -12,7 +12,7 @@ class Room():
         
     def to_dict(self):
         return {
-            "room_id": self.room_id,
+            "room_id": str(self.room_id),
             "name": self.name,
             "capacity": self.capacity,
             "owner": self.owner,
