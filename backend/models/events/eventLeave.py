@@ -41,5 +41,5 @@ class EventLeave(Event):
         
         user= db.get_user_by_id(data["user_id"])
         room= db.get_room_by_id(data["room_id"])
-        date = datetime.fromisoformat(data["datetime"])
+        date = datetime.fromisoformat(data["datetime"].replace("Z", "+00:00"))#for python 3.9
         return EventLeave(uuid.uuid4(),user, room, date)

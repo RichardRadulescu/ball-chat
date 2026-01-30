@@ -42,8 +42,9 @@ async def create_user():
     nouns = ["Panda", "Wizard", "Falcon", "Ghost", "Knight", "Otter"]
     user = User(uuid4(), f"{random.choice(adjectives)} {random.choice(nouns)}" ,"online")
     db=DataManager()
-    db.users[user.user_id]=user
+    db.users[str(user.user_id)]=user
     db.update_user()
+    return user
 
 # --- 2. The Chat Entry Point ---
 @app.websocket("/ws")

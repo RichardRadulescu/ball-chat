@@ -48,5 +48,7 @@ class EventJoin(Event):
         user= db.get_user_by_id(data["user_id"])
         room= db.get_room_by_id(data["room_id"])
 
-        date = datetime.fromisoformat(data["datetime"])
+        
+        date = datetime.fromisoformat(data["datetime"].replace("Z", "+00:00"))#for python 3.9
+        
         return EventJoin(uuid.uuid4(),user, room, date)

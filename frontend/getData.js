@@ -2,7 +2,7 @@
 import { spawnUserBall } from "./physics.js";
 
 let currentUser = null;
-const socket = new WebSocket("ws://0.0.0.0:8000/ws");
+const socket = new WebSocket("ws://127.0.0.1:8000/ws");
 
 // Handle Incoming Messages
 socket.onmessage = (event) => {
@@ -19,7 +19,7 @@ socket.onmessage = (event) => {
 
 export const loadRooms = async (userData) => {
     currentUser = userData; // Store the user passed from main.js
-    const roomTemplateBase = await getTemplate('./templates/room.html');
+    const roomTemplateBase = await getTemplate('./static/templates/room.html');
     const resp = await fetch("http://localhost:8000/rooms");
     const rooms = await resp.json();
     
@@ -28,9 +28,9 @@ export const loadRooms = async (userData) => {
 
     Object.values(rooms).forEach(room => {
         const roomElement = roomTemplateBase.cloneNode(true);
-        roomElement.querySelector(".room-info").innerText = `${room.name}`;
+        roomElement.querySelector(".room-info").innerText = `${room.name} [ ${room.capacity} ]`;
         
-        roomElement.querySelector(".join-btn").addEventListener("click", () => {
+        roomElement.addEventListener("click", () => {
             const payload = {
                 "event_type": "JoinRoom",
                 "user_id": currentUser.user_id,

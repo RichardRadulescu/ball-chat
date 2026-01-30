@@ -1,14 +1,86 @@
 {
   "4e7b396e-6997-48f8-8051-78716616086c": {
-    "user_id": "4e7b396e-6997-48f8-8051-78716616086c",
+    "id": "4e7b396e-6997-48f8-8051-78716616086c",
     "name": "Alice Vance",
     "alias": "Ally",
     "status": "online"
   },
   "92745302-3932-4934-8c8a-78807d892864": {
-    "user_id": "92745302-3932-4934-8c8a-78807d892864",
+    "id": "92745302-3932-4934-8c8a-78807d892864",
     "name": "Bob Burnquist",
     "alias": "SkaterB",
     "status": "away"
+  },
+  "11cb380a-857c-4f01-a8ff-00d9570855fd": {
+    "id": "11cb380a-857c-4f01-a8ff-00d9570855fd",
+    "name": "Crimson Otter",
+    "alias": null,
+    "status": "online"
+  },
+  "c6010d64-1fcd-4c0e-b0de-7ac37b88ea36": {
+    "id": "c6010d64-1fcd-4c0e-b0de-7ac37b88ea36",
+    "name": "Silent Falcon",
+    "alias": null,
+    "status": "online"
+  },
+  "788c4981-9171-4a7d-87c0-782de9d9741d": {
+    "id": "788c4981-9171-4a7d-87c0-782de9d9741d",
+    "name": "Silent Ghost",
+    "alias": null,
+    "status": "online"
+  },
+  "2cce96a6-f701-4a84-b91d-7e046333c5c2": {
+    "id": "2cce96a6-f701-4a84-b91d-7e046333c5c2",
+    "name": "Golden Otter",
+    "alias": null,
+    "status": "online"
+  },
+  "f5f976c2-ada4-48b0-9ca9-5883090dbd5e": {
+    "id": "f5f976c2-ada4-48b0-9ca9-5883090dbd5e",
+    "name": "Golden Wizard",
+    "alias": null,
+    "status": "online"
+  },
+  "724e2da9-58d5-4852-a637-23bc9f4c257c": {
+    "id": "724e2da9-58d5-4852-a637-23bc9f4c257c",
+    "name": "Silent Knight",
+    "alias": null,
+    "status": "online"
+  },
+  "3b94f7ff-76cc-453b-972e-97b7500c5568": {
+    "id": "3b94f7ff-76cc-453b-972e-97b7500c5568",
+    "name": "Speedy Wizard",
+    "alias": null,
+    "status": "online"
+  },
+  "de111433-6865-4a22-9e83-217623c472ac": {
+    "id": "de111433-6865-4a22-9e83-217623c472ac",
+    "name": "Mystic Knight",
+    "alias": null,
+    "status": "online"
+  },
+  "5de42a3e-aa2c-45e8-86a9-0ccfd1a8286b": {
+    "id": "5de42a3e-aa2c-45e8-86a9-0ccfd1a8286b",
+    "name": "Mystic Wizard",
+    "alias": null,
+    "status": "online"
+  },
+  "e821971b-0bc6-4747-bc91-51140422702f": {
+    "id": "e821971b-0bc6-4747-bc91-51140422702f",
+    "name": "Speedy Ghost",
+    "alias": null,
+    "status": "online"
+  },
+  "6b8e3590-ec81-4a1d-8caf-56d813703b51": {
+    "id": "6b8e3590-ec81-4a1d-8caf-56d813703b51",
+    "name": "Silent Knight",
+    "alias": null,
+    "status": "online"
+  },
+  "51837a31-5e5b-44d0-9267-af3838582281": {
+    "id": "51837a31-5e5b-44d0-9267-af3838582281",
+    "name": "Lazy Ghost",
+    "alias": null,
+    "status": "online"
   }
 }
