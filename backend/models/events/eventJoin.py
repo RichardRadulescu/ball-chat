@@ -19,14 +19,17 @@ class EventJoin(Event):
         self.datetime= date
 
     
-    async def resolve(self):
-        # Implement the logic for a user joining a room
-        db = DataManager()
+    async def resolve(self, db: DataManager):
+        # Can make it so it uses alias and check for uniqueness. So i dont expose ids
         if not self.room.has_capacity():
             raise RoomFullException("Can not join. Room is full.")
         
         db.add_user_to_room(self.room.room_id, self.user.user_id)
 
+        return ", ".join(user.name for user in self.room.users)
+
+    async def get_broadcast_message(self) -> None | str:
+        return f"User {self.user.name} has joined."
     
     @staticmethod
     def parse_data(data: dict, db: DataManager) -> EventJoin:

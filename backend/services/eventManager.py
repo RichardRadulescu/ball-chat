@@ -21,19 +21,26 @@ class EventManager(metaclass=Singleton):
             if not event_class:
                 raise UnsupportedEventError(f"Unknown event: {event_type}")
 
+            data_manager=DataManager()
             # Instantiate and run
-            event_obj = event_class.parse_data(data, DataManager())
-            await event_obj.resolve()
+            event_obj = event_class.parse_data(data, data_manager)
+            response= await event_obj.resolve(data_manager)
             
             # Success response
-            await websocket.send_json({"type": "success", "event": event_type})
+            await websocket.send_json({"type": "success", "event": event_type, "response": f"{response}" })
+            #Broadcast message
+            message = event_obj.get_broadcast_message()
+            connection_manager= ConnectionManager()
+            if message:
+                await connection_manager.publish(message)
+
 
         except RoomFullException as e:
             # Catching your custom error
             await websocket.send_json({
                 "type": "error",
                 "message": str(e),
-                "code": e.code
+                #"code": e.code
             })
 
         except Exception as e:

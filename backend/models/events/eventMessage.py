@@ -2,7 +2,7 @@ from __future__ import annotations
 from models import Event, User, Room
 from typing import TYPE_CHECKING
 import uuid 
-import datetime
+from datetime import datetime
 
 if TYPE_CHECKING:
     from services.eventManager import EventManager
@@ -19,12 +19,15 @@ class EventMessage(Event):
         self.datetime= date
 
     
-    async def resolve(self):
-        db = DataManager()
+    async def resolve(self, db: DataManager):
+        return
+    
+    def get_broadcast_message(self):
+        return {"user_name": self.user.name, "user_message": self.message}
 
     
     @staticmethod
-    def parse_data(data: dict) -> EventMessage:
+    def parse_data(data: dict, db: DataManager) -> EventMessage:
         """
         {
             "user_id": string,
@@ -36,7 +39,6 @@ class EventMessage(Event):
         required = {"user_id", "room_id", "datetime", "message"}
         if not required.issubset(data):
             raise ValueError("Invalid data format")
-        db = DataManager()
         
         user= db.get_user_by_id(data["user_id"])
         room= db.get_room_by_id(data["room_id"])

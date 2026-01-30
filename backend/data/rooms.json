@@ -4,15 +4,17 @@
     "name": "The Cozy Nook",
     "capacity": 5,
     "owner": null,
-    "whitelist": [],
-    "users": ["4e7b396e-6997-48f8-8051-78716616086c"]
+    "users": [
+      "92745302-3932-4934-8c8a-78807d892864"
+    ],
+    "whitelist": []
   },
   "b8893792-74d3-4a1e-826d-966967520e74": {
     "room_id": "b8893792-74d3-4a1e-826d-966967520e74",
     "name": "Main Hall",
     "capacity": 10,
     "owner": null,
-    "whitelist": ["92745302-3932-4934-8c8a-78807d892864"],
-    "users": []
+    "users": [],
+    "whitelist": []
   }
 }
